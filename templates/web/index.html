@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/style.css' %}"
+      type="text/css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="container"
+      style="background-image: url({% static 'images/image.jpg'%})"
+    >
+      <h2>Food Management App</h2>
+      <p>choose your best choice</p>
+
+      <button>Login</button>
+    </div>
+  </body>
+</html>
