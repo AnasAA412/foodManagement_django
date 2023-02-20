@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>{{title}}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body>
+    <h2>Login Page</h2>
+    <br />
+    <div class="login">
+      <form id="login" method="post" action="">
+        {% csrf_token %} {% for field in form %}
+        <label form="{{field.id_for_label}}">{{field.label}}</label>
+        {{field}}
+        <br /><br />
+        {% endfor %}
+        <div class="submit_container">
+          {% if error %}
+          <p class="error-message">{{message}}</p>
+          {% endif %}
+          <button type="submit">Create Account</button>
+
+          <a href="{% url 'user:login' %}">Login</a>
+        </div>
+
+        <br /><br />
+      </form>
+    </div>
+  </body>
+</html>
+

@@ -15,12 +15,20 @@
   <body>
     <div
       class="container"
-      style="background-image: url({% static 'images/image.jpg'%})"
+      style="background-image: url({% static 'images/image.jpg' %})"
     >
       <h2>Food Management App</h2>
       <p>choose your best choice</p>
 
-      <button>Login</button>
+      <div>
+
+        {% if request.user.is_authenticated %}
+          
+          <button><a href="{% url 'user:logout' %}" class="login"> Logout </a></button>
+        {% else %}
+          <button></button><a href="{% url 'user:login' %}" class="login"> Login </a></button>
+        {% endif %}
+      <div>
     </div>
   </body>
 </html>

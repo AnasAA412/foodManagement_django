@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.http.response import HttpResponseRedirect
 from user.forms import UserForm
 from django.contrib.auth.models import User
@@ -23,12 +23,59 @@ def login(request):
             "error": True,
             "message": "Invalid username or password"
         }    
-        return render(request, "users/login.html", context=context)
+        return render(request, "user/login.html", context=context)
 
     else: 
 
         context = {
             "title": "Login",
         }    
-        return render(request, "users/login.html", context=context)
+        return render(request, "user/login.html", context=context)
 
+def logout(request):
+    auth_logout(request)   
+    return HttpResponseRedirect(reverse("web:index"))
+
+
+def signup(request):
+    if request.method == "POST":
+        forms = UserForm(request.POST)
+        if forms.is_valid():
+            instance = forms.save(commit=False)
+
+            user = User.objects.create_user(
+                username=instance.username,
+                password=instance.password,
+                email=instance.email,
+                first_name=instance.first_name,
+                last_name=instance.last_name
+            )
+
+            
+
+            user = authenticate(request, username=instance.username, password=instance.password)
+            auth_login(request,user)
+
+            return HttpResponseRedirect(reverse("web:index"))
+        else:
+            message = generate_form_errors(forms)
+
+
+            form = UserForm()
+            context={
+            
+            "title": "Signup ",
+            "error": True,
+            "message": message,
+            "form": form
+
+            }    
+            return render(request, "user/signup.html",context=context)
+
+    else:
+        form = UserForm()
+        context={
+            "title": "Signup", 
+            "form": form
+        }
+        return render(request, "user/signup.html", context=context)
