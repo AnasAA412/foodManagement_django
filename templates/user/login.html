@@ -6,32 +6,39 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/style.css' %}"
+      href="{% static 'css/logstyle.css' %}"
     />
   </head>
   <body>
-    <h2>Login Page</h2>
-    <br />
-    <div class="login">
-      <form id="login" method="post" action="">
+    
+    
+      <form id="login" method="POST" action="">
         {% csrf_token %}
-        <label><b>User Name </b> </label>
-        <input type="text" name="username" placeholder="Username" />
-        <br /><br />
-        <label><b>Password </b> </label>
-        <input type="Password" name="password" placeholder="Password" />
-        <br /><br />
+        <div class="box">
+            <h1>Dashboard</h1>
+        
+
+       
+
+        <input type="text" name="username"  class="email" placeholder="Username" />
+        
+        
+
+        <input type="Password" name="password" class="email" placeholder="Password" />
+        
         <div class="submit_container">
           {% if error %}
           <p class="error-message">{{message}}</p>
           {% endif %}
-          <button type="submit">Log In</button>
+          
 
-          <a href="{% url 'user:signup' %}">Create Account</a>
+          <button><a href="{% url 'user:login' %}" id="btn2"> Login </a></button>
+          <a href="{% url 'user:signup' %}"><div id="btn2">Sign Up</div></a>
+          
         </div>
 
-        <br /><br />
+        
       </form>
-    </div>
+    
   </body>
 </html>

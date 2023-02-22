@@ -10,7 +10,7 @@
       href="{% static 'css/style.css' %}"
       type="text/css"
     />
-    <title>Document</title>
+    <title>Food Management | Login</title>
   </head>
   <body>
     <div
@@ -24,9 +24,9 @@
 
         {% if request.user.is_authenticated %}
           
-          <button><a href="{% url 'user:logout' %}" class="login"> Logout </a></button>
+          <button><a href="{% url 'user:logout' %}" class="logout"> Logout </a></button>
         {% else %}
-          <button></button><a href="{% url 'user:login' %}" class="login"> Login </a></button>
+          <button><a href="{% url 'user:login' %}" id="btn2"> Login </a></button>
         {% endif %}
       <div>
     </div>

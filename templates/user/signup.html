@@ -6,14 +6,15 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/style.css' %}"
+      href="{% static 'css/logstyle.css' %}"
     />
   </head>
   <body>
-    <h2>Login Page</h2>
-    <br />
-    <div class="login">
+    
+    
       <form id="login" method="post" action="">
+        <div class="box">
+          <h1>Dashboard</h1>
         {% csrf_token %} {% for field in form %}
         <label form="{{field.id_for_label}}">{{field.label}}</label>
         {{field}}
@@ -23,14 +24,13 @@
           {% if error %}
           <p class="error-message">{{message}}</p>
           {% endif %}
-          <button type="submit">Create Account</button>
-
-          <a href="{% url 'user:login' %}">Login</a>
+          <button type="submit">Sign Up</button>
+          <a href="{% url 'user:login' %}"><div id="btn2">Login</div></a>
         </div>
 
         <br /><br />
       </form>
-    </div>
+    
   </body>
 </html>
 

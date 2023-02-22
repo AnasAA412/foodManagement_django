@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+    <title>Home Page</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Food Management App</div>
+
+      <div>
+        <button class="order">My Orders</button>
+        <button class="order">
+          <a href="{% url 'user:logout' %}" class="logout">Logout</a>
+        </button>
+      </div>
+    </header>
+
+    <!-- <section id="main">
+      <div class="menu">
+        {% for menuitem in menuitems %}
+          {% for category in menuitem.categories.all %}
+            <li>{{category.title}}</li>
+          {% endfor %}
+        <div class="card" style="width: 18rem">
+          <img
+            class="card-img-top"
+            src="{{menuitem.Image.url}}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{menuitem.title}}</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section> -->
+
+    <section id="main">
+      <ul class="menulist">
+        {% for menuitem in menuitems %}
+        <div class="menu">
+          {% for category in menuitem.categories.all %}
+          <li>Time :{{category.title}}</li>
+          {% endfor %}
+          <div class="card" style="width: 19rem; height: 22rem">
+            <img
+              class="card-img-top"
+              src="{{menuitem.Image.url}}"
+              alt="Card image cap"
+              style="height: 19rem"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{menuitem.title}}</h5>
+
+              <div class="input-group my-3" style="width: 30%">
+                <input
+                  type="number"
+                  value="1"
+                  class="form-control"
+                  id="productQty"
+                />
+                <div class="input-group-append">
+                  <input
+                    type="hidden"
+                    class="product-id"
+                    value="{{menuitems.id}}"
+                  />
+                  <input
+                    type="hidden"
+                    class="product-title"
+                    value="{{menuitems.title}}"
+                  />
+                  <button
+                    class="btn btn-primary btn-sm"
+                    type="button"
+                    id="addToOrderBtn"
+                  >
+                    <i class="fa fa-oder-cart"></i> Add Order
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </ul>
+    </section>
+  </body>
+
+  <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  <script
+    src="{% static 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' %}"
+    type="text/javascript"
+  ></script>
+</html>
