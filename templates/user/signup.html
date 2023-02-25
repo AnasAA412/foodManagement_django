@@ -24,8 +24,8 @@
           {% if error %}
           <p class="error-message">{{message}}</p>
           {% endif %}
-          <button type="submit">Sign Up</button>
-          <a href="{% url 'user:login' %}"><div id="btn2">Login</div></a>
+          <button><a style="text-decoration: none;" href="{% url 'user:login' %}" id="btn2"> Signup </a></button>
+          <button><a style="text-decoration: none;" href="{% url 'user:login' %}" id="btn2">Login</a></button>
         </div>
 
         <br /><br />

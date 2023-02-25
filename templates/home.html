@@ -11,6 +11,10 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
     <title>Home Page</title>
@@ -20,9 +24,22 @@
       <div class="logo">Food Management App</div>
 
       <div>
-        <button class="order">My Orders</button>
         <button class="order">
-          <a href="{% url 'user:logout' %}" class="logout">Logout</a>
+          <a
+            href="{% url 'menu:order' %}"
+            class="logout"
+            style="color: #fff; text-decoration: none"
+            >Orders
+            <span class="badge badge-info">4</span></a
+          >
+        </button>
+        <button class="order">
+          <a
+            href="{% url 'user:logout' %}"
+            style="color: #fff; text-decoration: none"
+            class="logout"
+            >Logout</a
+          >
         </button>
       </div>
     </header>
@@ -69,32 +86,29 @@
             <div class="card-body">
               <h5 class="card-title">{{menuitem.title}}</h5>
 
-              <div class="input-group my-3" style="width: 30%">
+              <div class="input" style="width: 80%; display: flex; height: 40px; margin-bottom: 20px; align-items: center;">
                 <input
                   type="number"
                   value="1"
                   class="form-control"
                   id="productQty"
                 />
-                <div class="input-group-append">
-                  <input
-                    type="hidden"
-                    class="product-id"
-                    value="{{menuitems.id}}"
-                  />
-                  <input
-                    type="hidden"
-                    class="product-title"
-                    value="{{menuitems.title}}"
-                  />
-                  <button
-                    class="btn btn-primary btn-sm"
-                    type="button"
-                    id="addToOrderBtn"
+                <button
+                  class="orderbtn"
+                  style="color: #fff; text-decoration: none; margin-left: 20px; border: none; background: blue; padding: 10px 10px; width: 50rem;   display: flex;"
+                >
+                  <a
+                    href="{% url 'menu:is_ordered' id=menuitem.id %}"
+                    style="
+                      color: #fff;
+                      text-decoration: none;
+                      margin-left: 20px;
+                    "
+                    class="logout"
+                    >Add Order
+                    </a
                   >
-                    <i class="fa fa-oder-cart"></i> Add Order
-                  </button>
-                </div>
+                </button>
               </div>
             </div>
           </div>

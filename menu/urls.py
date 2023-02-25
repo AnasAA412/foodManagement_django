@@ -1,9 +1,10 @@
 from django.urls import path,include
-from menu.views import menu
+from menu import views
 
 app_name = "menu"
 
 urlpatterns = [
-    path("", menu, name="menu"),
-    
+    path("", views.menu, name="menu"),
+    path("orders/", views.order, name="order"),
+    path("is_ordered/<int:id>", views.is_ordered, name="is_ordered"),
 ]

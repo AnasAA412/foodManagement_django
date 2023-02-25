@@ -15,6 +15,7 @@ class MenuItem(models.Model):
     title = models.CharField(max_length=150)
     Image = models.ImageField(upload_to="food/")
     categories = models.ManyToManyField("menu.Category")
+    is_ordered  = models.BooleanField(default=False)
 
 
     class Meta:

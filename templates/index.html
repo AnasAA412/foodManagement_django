@@ -24,9 +24,9 @@
 
         {% if request.user.is_authenticated %}
           
-          <button><a href="{% url 'user:logout' %}" class="logout"> Logout </a></button>
+          <button><a href="{% url 'user:logout' %}" class="logout" style="text-decoration: none;"> Logout </a></button>
         {% else %}
-          <button><a href="{% url 'user:login' %}" id="btn2"> Login </a></button>
+          <button><a href="{% url 'user:login' %}" id="btn2" style="text-decoration: none;"> Login </a></button>
         {% endif %}
       <div>
     </div>

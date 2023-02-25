@@ -1,40 +1,45 @@
- 
-
-header{
-    background-color: grey;
-    display: flex;
-    justify-content: space-between;
-    margin: 40px;
-    height: 90px;
+header {
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+  height: 90px;
 }
 
-.logo{
-    font-size: 30px;
-    margin: 30px;
-    color: white;
-    font-weight: 700;
-    letter-spacing: 2px;
+.logo {
+  font-size: 30px;
+  margin: 30px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-.order{
+.order {
+  padding: 10px 20px;
+  margin: 20px;
+  border: none;
+  background: blue;
+  
+  color: white;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+li {
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.orderbtn {
     padding: 10px 20px;
     margin: 20px;
     border: none;
     background: blue;
+    
     color: white;
     border-radius: 10px;
-
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-}
-li {
-    font-weight: 700;
-    margin-bottom: 30px;
-
-    
-}
-
+  }
